@@ -99,7 +99,7 @@ SpellCheckerPrivate::SpellCheckerPrivate(const QString &dictionary_path,
         if (file.open(QFile::ReadOnly)) {
             QTextStream stream(&file);
             while (!stream.atEnd()) {
-                hunspell.add(codec->fromUnicode(stream.readLine()));
+                hunspell.add(codec->fromUnicode(stream.readLine()).toStdString());
             }
         }
     }
